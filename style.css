@@ -1,0 +1,181 @@
+:root {
+    --Very-Light-Gray: hsl(0, 0%, 98%);
+    --Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+    --Light-Grayish-Blue: hsl(233, 11%, 84%);
+    --Dark-Grayish-Blue: hsl(236, 9%, 61%);
+    --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Itim', cursive;
+}
+
+body {
+    background-color: var(--Very-Light-Gray);
+    color: white;
+    position: relative;
+    min-height: 100vh;
+    font-size: 18px;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100% 25vh;
+    font-family: "Josefin Sans", sans-serif;
+    background-image: url(../images/bg-mobile-light.jpg);
+}
+
+.main {
+    margin: 0 auto;
+    max-width: 540px;
+    padding: 88px 25px;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-family: sans-serif;
+    letter-spacing: 6px;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.icon-button img {
+    width: 30px;
+    height: 30px;
+}
+
+.list-title {
+    margin: 5px 20px;
+    color: var(--Very-Dark-Grayish-Blue);
+    padding: 15px 0;
+}
+
+.listContainer,#editFormContainer {
+    background-color: white;
+    border-radius: 10px;
+    min-height: 250px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 20px;
+    color: var(--Very-Dark-Grayish-Blue);
+    font-size: 20px;
+}
+#editFormContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#editFormContainer form{
+    width: 70%;
+}
+#itemTitle{
+    outline:1.8px solid var(--Light-Grayish-Blue);
+
+    width: 70%;
+}
+.project-item {
+    cursor: pointer;
+    margin: 5px 40px;
+    list-style-type: none;
+    padding: 3px 0;
+    border-top: 1.6px solid var(--Very-Light-Grayish-Blue);
+}
+.todo-item{
+    cursor: pointer;
+    margin: 5px 40px;
+    list-style-type: none;
+    padding: 3px 0;
+    border-top: 1.6px solid var(--Very-Light-Grayish-Blue);
+}
+.hidden {
+    display: none;
+}
+
+.addContainer {
+    margin: 10px 40px;
+    display: flex;
+    align-items: center;
+    border: 1.8px solid var(--Very-Light-Grayish-Blue);
+    width: 85%;
+    border-radius: 12px;
+}
+
+.addButton {
+    border: none;
+    width: 15%;
+    background-color: var(--Very-Light-Grayish-Blue);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 42px;
+    color: var(--Very-Dark-Grayish-Blue);
+    font-size: 18px;
+    text-align: center;
+    padding: 6px 5px;
+    cursor: pointer;
+}
+
+input[type=text] {
+    background-color: white;
+    background-repeat: no-repeat;
+    color: var(--Dark-Grayish-Blue);
+    padding-left: 20px;
+    border: none;
+    width: 85%;
+    font-size: 16px;
+    outline: none;
+}
+.cancel{
+    border: none;
+    background-color: var(--Dark-Grayish-Blue);
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: var(--Very-Light-Gray);
+    margin-left: 240px;
+    cursor: pointer;
+}
+.btns button{
+    border: none;
+    background-color: var(--Dark-Grayish-Blue);
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: var(--Very-Light-Gray);
+    margin: 10px 10px;
+    cursor: pointer;
+}
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media only screen and (min-width: 768px) {
+  body {
+    background-image: url(../images/bg-desktop-light.jpg);
+    background-size: 100% 27vh;
+  }
+}
+
+.attribution {
+    color: var(--Very-Dark-Grayish-Blue);
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    left: 37%;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}

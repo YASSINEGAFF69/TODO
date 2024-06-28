@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Todo app</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="main">
+    <div class="head">
+      <h1 class="title">TODO</h1>
+      <button class="icon-button"><img src="./images/icon-moon.svg" alt="moon-icon"></button>
+    </div>
+
+    <div id="projectsListContainer" class="listContainer">
+      <h2 class="list-title">Projects</h2>
+      <ul id="projectsList" class="styled-list"></ul>
+      <div class="addContainer">
+          <input type="text" id="newProjectTitle" placeholder="Enter new project">
+          <button type="button" class="addButton" id="addProjectButton">Add</button>
+      </div>
+    </div>
+
+    <div id="todosListContainer" class="listContainer hidden">
+      <h2 id="todosListTitle" class="list-title"></h2>
+      <ul id="todosList" class="styled-list"></ul>
+      <div class="addContainer">
+          <input type="text" id="newTodoTitle" placeholder="Enter new todo">
+          <button type="button" class="addButton" id="addTodoButton">Add</button>
+      </div>
+      
+      <button type="button" id="cancelButton2" class="cancel">Cancel</button>
+    </div>
+    <div id="editFormContainer" class="hidden">
+      <h2>Edit Item</h2>
+      <form id="editForm">
+        <label for="itemTitle">Title:</label>
+        <input type="text" id="itemTitle" name="itemTitle">
+        <label for="itemDueDate">Due Date:</label>
+        <input type="date" id="itemDueDate" name="itemDueDate">
+        <div class="btns">
+          <button type="button" id="saveButton">Save</button>
+          <button type="button" id="cancelEditButton" class="cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/YASSINEGAFF69">YASSINE GAFFSAOUI</a>.
+  </div>
+
+  <script src="./src/app.js"></script>
+</body>
+</html>
