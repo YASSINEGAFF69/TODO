@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const projectsListContainer = document.getElementById('projectsList');
-    const todosListContainer = document.getElementById('todosList');
+    const projectsListContainer = document.getElementById('projectsListContainer');
+    const todosListContainer = document.getElementById('todosListContainer');
     const todosListTitle = document.getElementById('todosListTitle');
     const editFormContainer = document.getElementById('editFormContainer');
     const newProjectTitleInput = document.getElementById('newProjectTitle');
@@ -11,26 +11,32 @@ document.addEventListener('DOMContentLoaded', () => {
     let projectsData = [];
 
     function renderProjects() {
-        projectsListContainer.innerHTML = ''; // Clear existing list
+        const projectsList = document.getElementById('projectsList');
+        projectsList.innerHTML = ''; // Clear existing list
         projectsData.forEach(project => {
             const li = document.createElement('li');
             li.textContent = project.title;
             li.setAttribute('data-project-id', project.id);
             li.classList.add('project-item');
-            projectsListContainer.appendChild(li);
+            projectsList.appendChild(li);
         });
     }
 
     function renderTodos(projectID) {
         const project = projectsData.find(proj => proj.id === projectID);
         todosListTitle.textContent = project.title + " Todos";
-        todosListContainer.innerHTML = ''; // Clear existing list
+        const todosList = document.getElementById('todosList');
+        todosList.innerHTML = ''; // Clear existing list
         project.todos.forEach(todo => {
             const li = document.createElement('li');
             li.textContent = todo.title;
             li.setAttribute('data-todo-id', todo.id);
             li.classList.add('todo-item');
-            todosListContainer.appendChild(li);
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.classList.add('todo-checkbox');
+            li.prepend(checkbox);
+            todosList.appendChild(li);
         });
     }
 
@@ -40,8 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const projectID = event.target.getAttribute('data-project-id');
             currentProjectID = projectID;
             renderTodos(projectID);
-            document.getElementById('todosListContainer').classList.remove('hidden');
-            document.getElementById('projectsListContainer').classList.add('hidden');
+            todosListContainer.classList.remove('hidden');
+            projectsListContainer.classList.add('hidden');
         }
     });
 
@@ -53,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const todo = projectsData.find(proj => proj.id === currentItem.projectID).todos.find(todo => todo.id === currentItem.todoID);
             itemTitle.value = todo.title;
             editFormContainer.classList.remove('hidden');
-            document.getElementById('todosListContainer').classList.add('hidden');
+            todosListContainer.classList.add('hidden');
         }
     });
 
@@ -63,11 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
             todo.title = itemTitle.value;
             renderTodos(currentItem.projectID);
             editFormContainer.classList.add('hidden');
+            todosListContainer.classList.remove('hidden');
         }
     });
 
     document.getElementById('cancelEditButton').addEventListener('click', () => {
         editFormContainer.classList.add('hidden');
+        todosListContainer.classList.remove('hidden');
     });
 
     document.getElementById('addProjectButton').addEventListener('click', () => {
@@ -92,8 +100,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('cancelButton2').addEventListener('click', () => {
-        document.getElementById('todosListContainer').classList.add('hidden');
-            document.getElementById('projectsListContainer').classList.remove('hidden');
+        todosListContainer.classList.add('hidden');
+        projectsListContainer.classList.remove('hidden');
+    });
+
+    // Add event listeners for Enter key press on inputs
+    newProjectTitleInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            document.getElementById('addProjectButton').click();
+        }
+    });
+
+    newTodoTitleInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            document.getElementById('addTodoButton').click();
+        }
+    });
+
+    itemTitle.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            document.getElementById('saveButton').click();
+        }
     });
 
     renderProjects(); // Initial rendering of projects

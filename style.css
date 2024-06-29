@@ -12,6 +12,7 @@
     font-family: 'Itim', cursive;
 }
 
+/* Body Styles */
 body {
     background-color: var(--Very-Light-Gray);
     color: white;
@@ -25,12 +26,21 @@ body {
     background-image: url(../images/bg-mobile-light.jpg);
 }
 
+@media only screen and (min-width: 768px) {
+    body {
+        background-image: url(../images/bg-desktop-light.jpg);
+        background-size: 100% 27vh;
+    }
+}
+
+/* Main Container */
 .main {
     margin: 0 auto;
     max-width: 540px;
     padding: 88px 25px;
 }
 
+/* Header */
 .head {
     display: flex;
     justify-content: space-between;
@@ -57,13 +67,15 @@ body {
     height: 30px;
 }
 
+/* List Titles */
 .list-title {
     margin: 5px 20px;
     color: var(--Very-Dark-Grayish-Blue);
     padding: 15px 0;
 }
 
-.listContainer,#editFormContainer {
+/* List Containers */
+.listContainer, #editFormContainer {
     background-color: white;
     border-radius: 10px;
     min-height: 250px;
@@ -71,38 +83,22 @@ body {
     color: var(--Very-Dark-Grayish-Blue);
     font-size: 20px;
 }
-#editFormContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-#editFormContainer form{
-    width: 70%;
-}
-#itemTitle{
-    outline:1.8px solid var(--Light-Grayish-Blue);
 
-    width: 70%;
-}
-.project-item {
+/* Project and Todo Items */
+.project-item, .todo-item {
     cursor: pointer;
     margin: 5px 40px;
     list-style-type: none;
     padding: 3px 0;
     border-top: 1.6px solid var(--Very-Light-Grayish-Blue);
 }
-.todo-item{
-    cursor: pointer;
-    margin: 5px 40px;
-    list-style-type: none;
-    padding: 3px 0;
-    border-top: 1.6px solid var(--Very-Light-Grayish-Blue);
-}
-.hidden {
-    display: none;
+
+/* Todo Item Checkbox */
+.todo-item input[type="checkbox"] {
+    margin-right: 10px;
 }
 
+/* Add Container */
 .addContainer {
     margin: 10px 40px;
     display: flex;
@@ -136,34 +132,63 @@ input[type=text] {
     font-size: 16px;
     outline: none;
 }
-.cancel{
+
+/* Edit Form Container */
+#editFormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 26px;
+    align-items: center;
+}
+
+#editFormContainer form {
+    width: 70%;
+    margin-left: 20px;
+}
+
+#itemTitle {
+    outline: 1.8px solid var(--Light-Grayish-Blue);
+    border-radius: 5px;
+    padding: 3px 11.5px;
+    width: 70%;
+    margin-bottom: 14px;
+}
+
+#itemDueDate {
+    outline: 1.8px solid var(--Light-Grayish-Blue);
+    border-radius: 5px;
+    border: none;
+    padding: 3px 10px;
+    width: 60%;
+    color: var(--Dark-Grayish-Blue);
+}
+
+/* Buttons */
+.cancel, .btns button {
     border: none;
     background-color: var(--Dark-Grayish-Blue);
     border-radius: 10px;
+    margin-left: 15px;
     padding: 5px 10px;
     color: var(--Very-Light-Gray);
+    cursor: pointer;
+}
+
+.cancel {
     margin-left: 240px;
-    cursor: pointer;
 }
-.btns button{
-    border: none;
-    background-color: var(--Dark-Grayish-Blue);
-    border-radius: 10px;
-    padding: 5px 10px;
-    color: var(--Very-Light-Gray);
-    margin: 10px 10px;
-    cursor: pointer;
-}
-.btns{
+
+.btns {
+    margin-top: 10px;
+    margin-left: -25px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-@media only screen and (min-width: 768px) {
-  body {
-    background-image: url(../images/bg-desktop-light.jpg);
-    background-size: 100% 27vh;
-  }
+
+.hidden {
+    display: none !important;
 }
 
 .attribution {
