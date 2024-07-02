@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderProjects() {
         const projectsList = document.getElementById('projectsList');
-        projectsList.innerHTML = ''; // Clear existing list
+        projectsList.innerHTML = '';
         projectsData.forEach(project => {
             const li = document.createElement('li');
             li.textContent = project.title;
@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Event delegation for project item clicks
     projectsListContainer.addEventListener('click', (event) => {
         if (event.target.classList.contains('project-item')) {
             const projectID = event.target.getAttribute('data-project-id');
@@ -51,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Event delegation for todo item clicks
     todosListContainer.addEventListener('click', (event) => {
         if (event.target.classList.contains('todo-item')) {
             const todoID = event.target.getAttribute('data-todo-id');
@@ -104,7 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
         projectsListContainer.classList.remove('hidden');
     });
 
-    // Add event listeners for Enter key press on inputs
     newProjectTitleInput.addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {
             event.preventDefault();
@@ -126,5 +123,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    renderProjects(); // Initial rendering of projects
+    renderProjects(); 
 });
