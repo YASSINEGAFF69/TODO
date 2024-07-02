@@ -23,12 +23,12 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 25vh;
     font-family: "Josefin Sans", sans-serif;
-    background-image: url(../images/bg-mobile-light.jpg);
+    background-image: url(./images/bg-mobile-light.jpg);
 }
 
 @media only screen and (min-width: 768px) {
     body {
-        background-image: url(../images/bg-desktop-light.jpg);
+        background-image: url(./images/bg-desktop-light.jpg);
         background-size: 100% 27vh;
     }
 }
