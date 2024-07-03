@@ -4,6 +4,7 @@
     --Light-Grayish-Blue: hsl(233, 11%, 84%);
     --Dark-Grayish-Blue: hsl(236, 9%, 61%);
     --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+    --white: #FFFFFF;
 }
 
 * {
@@ -11,7 +12,15 @@
     margin: 0;
     font-family: 'Itim', cursive;
 }
-
+.dark-mode{
+    background-image: url('images/bg-desktop-dark.jpg');
+    --Very-Light-Gray: rgb(33, 31, 31);
+    --Very-Light-Grayish-Blue:hsl(235, 19%, 35%) ;
+    --Light-Grayish-Blue:  hsl(236, 9%, 61%);
+    --Dark-Grayish-Blue: hsl(233, 11%, 84%);
+    --Very-Dark-Grayish-Blue:hsl(236, 33%, 92%);
+    --white: hsl(233, 26%, 19%);
+}
 /* Body Styles */
 body {
     background-color: var(--Very-Light-Gray);
@@ -23,15 +32,9 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 25vh;
     font-family: "Josefin Sans", sans-serif;
-    background-image: url(../images/bg-mobile-light.jpg);
+    background-image: url('images/bg-mobile-light.jpg');
 }
 
-@media only screen and (min-width: 768px) {
-    body {
-        background-image: url(../images/bg-desktop-light.jpg);
-        background-size: 100% 27vh;
-    }
-}
 
 /* Main Container */
 .main {
@@ -69,14 +72,14 @@ body {
 
 /* List Titles */
 .list-title {
-    margin: 5px 20px;
+    margin: 5px 10px;
     color: var(--Very-Dark-Grayish-Blue);
     padding: 15px 0;
 }
 
 /* List Containers */
 .listContainer, #editFormContainer {
-    background-color: white;
+    background-color: var(--white);
     border-radius: 10px;
     min-height: 250px;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 20px;
@@ -87,7 +90,7 @@ body {
 /* Project and Todo Items */
 .project-item, .todo-item {
     cursor: pointer;
-    margin: 5px 40px;
+    margin: 5px 20px;
     list-style-type: none;
     padding: 3px 0;
     border-top: 1.6px solid var(--Very-Light-Grayish-Blue);
@@ -100,7 +103,7 @@ body {
 
 /* Add Container */
 .addContainer {
-    margin: 10px 40px;
+    margin: 10px 15px;
     display: flex;
     align-items: center;
     border: 1.8px solid var(--Very-Light-Grayish-Blue);
@@ -111,6 +114,7 @@ body {
 .addButton {
     border: none;
     width: 15%;
+    min-width: 40px;
     background-color: var(--Very-Light-Grayish-Blue);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -123,8 +127,7 @@ body {
 }
 
 input[type=text] {
-    background-color: white;
-    background-repeat: no-repeat;
+    background-color: var(--white);
     color: var(--Dark-Grayish-Blue);
     padding-left: 20px;
     border: none;
@@ -198,9 +201,34 @@ input[type=text] {
     text-align: center;
     position: absolute;
     bottom: 10px;
-    left: 37%;
+    left: 15%;
+    right: 15%;
 }
 
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+    body {
+        background-image: url('images/bg-desktop-light.jpg');
+        background-size: 100% 27vh;
+    }
+    .addContainer{
+        margin: 10px 40px;
+    }
+    .list-title {
+        margin: 5px 20px;
+    }
+    .attribution{
+        left: 37%;
+        right: 35%;
+    }
+    .project-item , .todo-item{
+        margin: 5px 40px;
+        
+    }
 }
